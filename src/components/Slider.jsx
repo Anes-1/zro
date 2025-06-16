@@ -1,0 +1,80 @@
+import { useEffect, useRef } from 'react';
+import t_shirt1 from '../assets/t_shirt1.png';
+import t_shirt2 from '../assets/t_shirt2.png';
+
+export default function Slider() {
+  const sliderRef = useRef(null);
+
+  useEffect(() => {
+    const slider = sliderRef.current;
+    let scrollAmount = 0;
+    let animationFrameId;
+    const speed = 0.5;
+
+    function step() {
+      if (!slider) return;
+      scrollAmount += speed;
+      if (scrollAmount >= slider.scrollWidth / 2) {
+        scrollAmount = 0;
+      }
+      slider.scrollLeft = scrollAmount;
+      animationFrameId = requestAnimationFrame(step);
+    }
+
+    animationFrameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
+
+  const handleClick = (index) => {
+    alert(`Clicked product ${index + 1}. Replace with routing logic.`);
+  };
+
+  const getImage = (index) => {
+    return index % 2 === 0 ? (
+      <img
+        src={t_shirt2}
+        alt="Product"
+        className="w-full h-full object-cover rounded-lg"
+      />
+    ) : (
+      <img
+        src={t_shirt1}
+        alt="Product"
+        className="w-full h-full object-cover rounded-lg"
+      />
+    );
+  };
+
+  return (
+    <section className="py-12 px-6 flex justify-center">
+      <div
+        ref={sliderRef}
+        className="w-[860px] overflow-hidden"
+      >
+        <div
+          className="flex whitespace-nowrap select-none"
+          style={{ scrollBehavior: 'smooth' }}
+        >
+          {[...Array(2)].map((_, loopIdx) => (
+            <div key={loopIdx} className="flex space-x-6 pr-6">
+              {[...Array(6)].map((_, i) => (
+                <div
+                  key={i + loopIdx * 6}
+                  className="w-52 h-52 rounded-lg transition-transform transform hover:scale-105"
+                  onClick={() => handleClick(i)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') handleClick(i);
+                  }}
+                >
+                  {getImage(i)}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
