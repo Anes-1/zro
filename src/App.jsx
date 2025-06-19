@@ -1,7 +1,4 @@
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import ProductCard from './components/ProductCard';
-import Slider from './components/Slider';
 import Footer from './components/Footer'; 
 import Home from './pages/Home'
 import Market from './pages/Market'
@@ -15,7 +12,7 @@ function App() {
     <div className="min-h-screen bg-black text-white">
       <Navbar />
       <main className="pt-16">
-        <Hero />
+        
 
 
       <Routes>

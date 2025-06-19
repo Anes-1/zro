@@ -46,10 +46,10 @@ export default function Slider() {
   };
 
   return (
-    <section className="py-12 px-6 flex justify-center">
+    <section className="py-12 w-full">
       <div
         ref={sliderRef}
-        className="w-[860px] overflow-hidden"
+        className="w-full overflow-hidden"
       >
         <div
           className="flex whitespace-nowrap select-none"

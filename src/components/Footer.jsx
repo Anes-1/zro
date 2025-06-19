@@ -1,4 +1,5 @@
 import logo from '../assets/zr.png'
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -6,15 +7,15 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
         <img src={logo} alt="Zro Logo" className="h-12 w-auto " />
         <div className="text-center md:text-left">
-          <h2 className="text-2xl font-bold text-white">YourBrand</h2>
-          <p className="text-sm mt-2">Clothing made with passion.</p>
+          <h2 className="text-2xl font-bold text-white text-center">ZRØ</h2>
+          <p className="text-sm mt-2 text-center">Clothing made with passion.</p>
         </div>
 
         {/* Navigation */}
         <div className="flex justify-center space-x-8 text-sm">
-          <a href="#" className="hover:text-white transition">Shop</a>
-          <a href="#" className="hover:text-white transition">About</a>
-          <a href="#" className="hover:text-white transition">Contact</a>
+          <a href="#" className="hover:text-white transition">Shop now</a>
+          <a href="#" className="hover:text-white transition">About us</a>
+          <a href="#" className="hover:text-white transition">Contact us</a>
         </div>
 
         {/* Social Media */}
@@ -28,7 +29,7 @@ export default function Footer() {
 
       {/* Bottom */}
       <div className="mt-8 text-center text-sm text-gray-500">
-        &copy; {new Date().getFullYear()} YourBrand. All rights reserved.
+        &copy; {new Date().getFullYear()} ZRØ. All rights reserved.
       </div>
     </footer>
   );

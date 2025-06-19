@@ -1,4 +1,3 @@
-// import icon from '../assets/zr_full.png';
 import t_shirt2 from '../assets/t_shirt2.png'
 
 export default function ProductCard({ reverse = false, isFeatured = false }) {
