@@ -4,6 +4,10 @@ import Home from './pages/Home'
 import Market from './pages/Market'
 import Login from './pages/Login'
 import { BrowserRouter as Router , Routes , Route } from 'react-router-dom';
+import Info from './pages/info';
+
+
+
 
 
 function App() {
@@ -20,6 +24,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Market" element={<Market />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/info" element={<Info />} /> 
+
         
       </Routes> 
         {/* <section className="py-12 px-4">

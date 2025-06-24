@@ -1,9 +1,11 @@
 import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ Import navigate
 import t_shirt1 from '../assets/t_shirt1.png';
 import t_shirt2 from '../assets/t_shirt2.png';
 
 export default function Slider() {
   const sliderRef = useRef(null);
+  const navigate = useNavigate(); // ✅ Hook from React Router
 
   useEffect(() => {
     const slider = sliderRef.current;
@@ -25,8 +27,8 @@ export default function Slider() {
     return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
-  const handleClick = (index) => {
-    alert(`Clicked product ${index + 1}. Replace with routing logic.`);
+  const handleClick = () => {
+    navigate('/market'); // ✅ Go to /market when clicked
   };
 
   const getImage = (index) => {
@@ -47,10 +49,7 @@ export default function Slider() {
 
   return (
     <section className="py-12 w-full">
-      <div
-        ref={sliderRef}
-        className="w-full overflow-hidden"
-      >
+      <div ref={sliderRef} className="w-full overflow-hidden">
         <div
           className="flex whitespace-nowrap select-none"
           style={{ scrollBehavior: 'smooth' }}
@@ -60,12 +59,12 @@ export default function Slider() {
               {[...Array(6)].map((_, i) => (
                 <div
                   key={i + loopIdx * 6}
-                  className="w-52 h-52 rounded-lg transition-transform transform hover:scale-105"
-                  onClick={() => handleClick(i)}
+                  className="w-52 h-52 rounded-lg transition-transform transform hover:scale-105 cursor-pointer"
+                  onClick={handleClick}
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => {
-                    if (e.key === 'Enter') handleClick(i);
+                    if (e.key === 'Enter') handleClick();
                   }}
                 >
                   {getImage(i)}
