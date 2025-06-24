@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom'; // ✅ Import navigate
+import { useNavigate } from 'react-router-dom'; 
 import t_shirt1 from '../assets/t_shirt1.png';
 import t_shirt2 from '../assets/t_shirt2.png';
 
 export default function Slider() {
   const sliderRef = useRef(null);
-  const navigate = useNavigate(); // ✅ Hook from React Router
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const slider = sliderRef.current;
@@ -28,7 +28,7 @@ export default function Slider() {
   }, []);
 
   const handleClick = () => {
-    navigate('/market'); // ✅ Go to /market when clicked
+    navigate('/market'); 
   };
 
   const getImage = (index) => {
