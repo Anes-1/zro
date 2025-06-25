@@ -14,7 +14,7 @@ export default function Navbar({ showCart, totalItems = 0, onCartClick }) {
           <Link to="/" className="hover:text-red-500">Home</Link>
           <Link to="/market" className="hover:text-red-500">Market</Link>
 
-          {/* Show cart if passed */}
+          
           {showCart && (
             <button
               onClick={onCartClick}

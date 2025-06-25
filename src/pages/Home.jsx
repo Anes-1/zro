@@ -26,7 +26,6 @@ export default function Home() {
         <h2 className="text-2xl font-bold text-white text-center mb-4">Featured Drops</h2>
         <div className="space-y-8">
           <ProductCard />
-          {/* Add more <ProductCard /> or map from a list later */}
         </div>
       </div>
 

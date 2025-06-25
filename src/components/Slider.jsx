@@ -56,9 +56,9 @@ export default function Slider() {
         >
           {[...Array(2)].map((_, loopIdx) => (
             <div key={loopIdx} className="flex space-x-6 pr-6">
-              {[...Array(6)].map((_, i) => (
+              {[...Array(10)].map((_, i) => (
                 <div
-                  key={i + loopIdx * 6}
+                  key={i + loopIdx * 10}
                   className="w-52 h-52 rounded-lg transition-transform transform hover:scale-105 cursor-pointer"
                   onClick={handleClick}
                   role="button"
