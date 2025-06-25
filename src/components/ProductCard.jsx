@@ -1,5 +1,6 @@
 
 import t_shirt2 from '../assets/t_shirt2.png'
+import backpack from '../assets/backpack.png'
 
 export default function ProductSection() {
   return (
@@ -25,7 +26,7 @@ export default function ProductSection() {
       <div className="flex flex-col md:flex-row-reverse items-center md:space-x-8 md:space-x-reverse">
         
         <div className="w-full md:w-80 mt-6 md:mt-0">
-          <img src={t_shirt2} alt="Product 2" className="rounded-lg shadow-md" />
+          <img src={backpack} alt="Product 2" className="rounded-lg shadow-md" />
         </div>
         
         <div className="text-center md:text-center max-w-md">

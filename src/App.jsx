@@ -13,34 +13,18 @@ import Info from './pages/info';
 function App() {
   return (
     <Router>
-    <div className="min-h-screen bg-black text-white">
-      <Navbar />
-      <main className="pt-16">
-        
-
-
-      <Routes>
-
-        <Route path="/" element={<Home />} />
-        <Route path="/Market" element={<Market />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/info" element={<Info />} /> 
-
-        
-      </Routes> 
-        {/* <section className="py-12 px-4">
-          <div className="space-y-8">
-            <ProductCard /> 
-            <ProductCard reverse={true} /> 
-          </div>
-          <Slider />
-        </section> 
-
-        {/* <Home /> */}
-        
-        <Footer />
-      </main>
-    </div>
+      <div className="min-h-screen bg-black text-white">
+        <Navbar />
+        <main className="pt-16">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/market" element={<Market />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/info" element={<Info />} />
+          </Routes>
+          <Footer />
+        </main>
+      </div>
     </Router>
   );
 }

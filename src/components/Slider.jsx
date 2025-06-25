@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import t_shirt1 from '../assets/t_shirt1.png';
 import t_shirt2 from '../assets/t_shirt2.png';
+import backpack from '../assets/backpack.png';
 
 export default function Slider() {
   const sliderRef = useRef(null);
@@ -31,17 +32,14 @@ export default function Slider() {
     navigate('/market'); 
   };
 
+  const productImages = [t_shirt1, t_shirt2, backpack];
+
   const getImage = (index) => {
-    return index % 2 === 0 ? (
+    const image = productImages[index % productImages.length];
+    return (
       <img
-        src={t_shirt2}
-        alt="Product"
-        className="w-full h-full object-cover rounded-lg"
-      />
-    ) : (
-      <img
-        src={t_shirt1}
-        alt="Product"
+        src={image}
+        alt={`Product ${index + 1}`}
         className="w-full h-full object-cover rounded-lg"
       />
     );

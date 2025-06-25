@@ -13,8 +13,8 @@ export default function Navbar({ showCart, totalItems = 0, onCartClick }) {
         <div className="flex items-center space-x-6">
           <Link to="/" className="hover:text-red-500">Home</Link>
           <Link to="/market" className="hover:text-red-500">Market</Link>
+          <Link to="/login" className="hover:text-red-500">Login</Link>
 
-          
           {showCart && (
             <button
               onClick={onCartClick}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import hoodie1 from '../assets/t_shirt1.png';
 import hoodie2 from '../assets/t_shirt2.png';
 import backpack from '../assets/backpack.png';
@@ -37,18 +38,28 @@ export default function Market() {
   const [quantity, setQuantity] = useState(1);
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [customerFirstName, setCustomerFirstName] = useState('');
+  const [searchParams] = useSearchParams();
 
   const [cart, setCart] = useState(() => {
     const saved = localStorage.getItem('cart');
     return saved ? JSON.parse(saved) : [];
   });
+
   useEffect(() => localStorage.setItem('cart', JSON.stringify(cart)), [cart]);
+
+  useEffect(() => {
+    const catFromURL = searchParams.get('category');
+    if (catFromURL && categories.includes(catFromURL)) {
+      setFilter(catFromURL);
+    }
+  }, [searchParams]);
 
   const shown = products.filter(
     p =>
       (filter === 'all' || p.category === filter) &&
       p.name.toLowerCase().includes(search.toLowerCase())
   );
+
   const totalItems = cart.reduce((n, i) => n + i.quantity, 0);
   const totalPrice = cart.reduce((n, i) => n + i.quantity * i.price, 0);
 
@@ -262,6 +273,7 @@ export default function Market() {
                         setOrderPlaced(true);
                         setCheckout(false);
                         setModalOpen(false);
+                        setCart([]); // 👈 Clear cart after successful order
                       }}
                     >
                       <div className="flex gap-2">
